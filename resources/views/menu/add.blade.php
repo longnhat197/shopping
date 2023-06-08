@@ -11,7 +11,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-4">
-                    <form action="category/create" method="post">
+                    <form action="menu/create" method="post">
                         @csrf
                         <div class="form-group">
                             <label for="name">Tên menu</label>

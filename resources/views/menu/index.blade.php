@@ -26,27 +26,27 @@
                                 <th >Action</th>
                             </tr>
                         </thead>
-                        {{-- <tbody>
-                            @foreach ($categories as $category)
+                        <tbody>
+                            @foreach ($menus as $menu)
                             <tr>
-                                <th>{{ $category->id }}</th>
-                                <td>{{ $category->name }}</td>
+                                <th>{{ $menu->id }}</th>
+                                <td>{{ $menu->name }}</td>
                                 <td class="text-center">
-                                    @if ($category->parent_id == 0)
+                                    @if ($menu->parent_id == 0)
                                     Cha
                                     @else
-                                    {{ $category->parent_id }}
+                                    {{ $menu->parent_id }}
                                     @endif
 
                                 </td>
                                 <td class="d-flex">
-                                    <a href="category/edit/{{ $category->id }}" data-toggle="tooltip" title="Edit"
+                                    <a href="menu/edit/{{ $menu->id }}" data-toggle="tooltip" title="Edit"
                                         data-placement="bottom" class="btn btn-outline-warning border-0 btn-sm">
                                         <span class="btn-icon-wrapper opacity-8">
                                             <i class="fa fa-edit fa-w-20"></i>
                                         </span>
                                     </a>
-                                    <form action="category/delete/{{ $category->id }}" method="post">
+                                    <form action="menu/delete/{{ $menu->id }}" method="post">
                                         @csrf
                                         <button class="btn btn-hover-shine btn-outline-danger border-0 btn-sm"
                                             type="submit" data-toggle="tooltip" title="Delete" data-placement="bottom"
@@ -61,9 +61,9 @@
                             @endforeach
 
 
-                        </tbody> --}}
+                        </tbody>
                     </table>
-                    {{-- {{ $categories->links() }} --}}
+                    {{ $menus->links() }}
                 </div>
 
             </div>
