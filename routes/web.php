@@ -20,3 +20,17 @@ Route::get('/', function () {
 Route::get('/home',function(){
     return view('home');
 });
+
+Route::prefix('category')->group(function(){
+    Route::get('',[App\Http\Controllers\CategoryController::class,'index']);
+    Route::get('create',[App\Http\Controllers\CategoryController::class,'create']);
+    Route::post('create',[App\Http\Controllers\CategoryController::class,'store']);
+    Route::get('edit/{id}',[App\Http\Controllers\CategoryController::class,'edit']);
+    Route::post('edit/{id}',[App\Http\Controllers\CategoryController::class,'update']);
+    Route::post('delete/{id}',[App\Http\Controllers\CategoryController::class,'delete']);
+});
+Route::prefix('menu')->group(function(){
+    Route::get('',[App\Http\Controllers\MenuController::class,'index']);
+    Route::get('create',[App\Http\Controllers\MenuController::class,'create']);
+    Route::post('create',[App\Http\Controllers\MenuController::class,'store']);
+});
