@@ -33,4 +33,7 @@ Route::prefix('menu')->group(function(){
     Route::get('',[App\Http\Controllers\MenuController::class,'index']);
     Route::get('create',[App\Http\Controllers\MenuController::class,'create']);
     Route::post('create',[App\Http\Controllers\MenuController::class,'store']);
+    Route::get('edit/{id}',[App\Http\Controllers\MenuController::class,'edit']);
+    Route::post('edit/{id}',[App\Http\Controllers\MenuController::class,'update']);
+    Route::post('delete/{id}',[App\Http\Controllers\MenuController::class,'delete']);
 });

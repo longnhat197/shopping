@@ -18,7 +18,7 @@ class MenuController extends Controller
     }
     public function index()
     {
-        $menus = $this->menu->latest()->paginate(5);
+        $menus = $this->menu->latest()->paginate(8);
         return view('menu.index',compact('menus'));
     }
 
@@ -32,12 +32,34 @@ class MenuController extends Controller
         try{
             $data = [
                 'name' => $request->name,
-                'parent_id'=>$request->parent_id
+                'parent_id'=>$request->parent_id,
+                'slug' => Str::slug($request->name)
             ];
             $this->menu->create($data);
         }catch(\Exception $err){
             return redirect('menu')->with('error',$err->getMessage());
         }
         return redirect('menu')->with('success','Thêm mới menu thành công');
+    }
+
+    public function edit($id){
+        $menu = $this->menu->find($id);
+        $htmlOption = $this->menuRecursive->menuRecursiveEdit($menu->parent_id);
+        return view('menu.edit',compact('menu','htmlOption'));
+    }
+
+    public function update($id,Request $request){
+        try {
+            $data = [
+                'name' => $request->name,
+                'parent_id' => $request->parent_id,
+                'slug' => Str::slug($request->name)
+            ];
+            $this->menu->find($id)->update($data);
+        } catch (\Exception $err) {
+            return redirect('menu')->with('error', $err->getMessage());
+        }
+
+        return redirect('menu')->with('success', 'Update menu thành công');
     }
 }
