@@ -62,4 +62,14 @@ class MenuController extends Controller
 
         return redirect('menu')->with('success', 'Update menu thành công');
     }
+
+    public function delete($id){
+        try{
+            $menu = $this->menu->find($id);
+            $this->menu->find($id)->delete();
+        }catch (\Exception $err){
+            return redirect('menu')->with('error', $err->getMessage());
+        }
+        return redirect('menu')->with('warning', 'Xoá danh mục '. $menu->name . ' thành công');
+    }
 }
