@@ -85,13 +85,19 @@
             display: block;
             margin-top: 10px;
         }
-        .form-login{
+
+        .form-login {
             margin-top: 20%;
         }
     </style>
 </head>
 
 <body>
+    @if (session('error'))
+    <div class="alert alert-danger col-lg-12 col-md-12 col-sm-12">
+        {{ session('error') }}
+    </div>
+    @endif
     <div class="container">
         <div class="row">
             <div class="col-sm-6 col-md-4 col-md-offset-4 form-login">
@@ -107,10 +113,9 @@
                         <button class="btn btn-lg btn-primary btn-block" type="submit">
                             Sign in</button>
                         <label class="checkbox pull-left">
-                            <input type="checkbox" name="remember_me" value="remember-me">
+                            <input type="checkbox" name="remember_me" value="remember_me">
                             Remember me
                         </label>
-
                     </form>
                 </div>
             </div>

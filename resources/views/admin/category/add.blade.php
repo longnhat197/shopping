@@ -4,14 +4,14 @@
 
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
-    @include('partials.content-header',['name' => 'Category','key'=>'Add','link'=>'category'])
+    @include('partials.content-header',['name' => 'Category','key'=>'Add','link'=>'admin/category'])
 
     <!-- Main content -->
     <div class="content">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-4">
-                    <form action="category/create" method="post">
+                    <form action="admin/category/create" method="post">
                         @csrf
                         <div class="form-group">
                             <label for="name">Tên danh mục</label>

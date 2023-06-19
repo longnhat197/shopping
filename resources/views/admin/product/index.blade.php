@@ -1,11 +1,11 @@
 @extends('layouts.admin')
 @section('content')
-@section('title','Danh sách menu')
+@section('title','Danh sách sản phẩm')
 
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
-    @include('partials.content-header',['name' => 'Menu','key'=>'List','link'=>'menu'])
+    @include('partials.content-header',['name' => 'Product','key'=>'List','link'=>'admin/product'])
     <!-- /.content-header -->
 
     <!-- Main content -->
@@ -13,7 +13,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
-                    <a href="menu/create" class="btn btn-outline-success float-right mr-2 mb-3">+ Thêm mới</a>
+                    <a href="admin/product/create" class="btn btn-outline-success float-right mr-2 mb-3">+ Thêm mới</a>
                 </div>
                 @include('partials.notification')
                 <div class="col-md-12">
@@ -21,32 +21,29 @@
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>Tên menu</th>
-                                <th class="text-center">Loại menu</th>
-                                <th >Action</th>
+                                <th>Tên sản phẩm</th>
+                                <th>Gía</th>
+                                <th>Ảnh minh hoạ</th>
+                                <th>Danh mục</th>
+                                <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($menus as $menu)
+                            {{-- @foreach ($categories as $category) --}}
                             <tr>
-                                <th>{{ $menu->id }}</th>
-                                <td>{{ $menu->name }}</td>
-                                <td class="text-center">
-                                    @if ($menu->parent_id == 0)
-                                    Cha
-                                    @else
-                                    {{ $menu->parent_id }}
-                                    @endif
-
-                                </td>
+                                <th>1</th>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
                                 <td class="d-flex">
-                                    <a href="menu/edit/{{ $menu->id }}" data-toggle="tooltip" title="Edit"
+                                    <a href="" data-toggle="tooltip" title="Edit"
                                         data-placement="bottom" class="btn btn-outline-warning border-0 btn-sm">
                                         <span class="btn-icon-wrapper opacity-8">
                                             <i class="fa fa-edit fa-w-20"></i>
                                         </span>
                                     </a>
-                                    <form action="menu/delete/{{ $menu->id }}" method="post">
+                                    <form action="" method="post">
                                         @csrf
                                         <button class="btn btn-hover-shine btn-outline-danger border-0 btn-sm"
                                             type="submit" data-toggle="tooltip" title="Delete" data-placement="bottom"
@@ -58,12 +55,12 @@
                                     </form>
                                 </td>
                             </tr>
-                            @endforeach
+                            {{-- @endforeach --}}
 
 
                         </tbody>
                     </table>
-                    {{ $menus->links() }}
+                    {{-- {{ $categories->links() }} --}}
                 </div>
 
             </div>

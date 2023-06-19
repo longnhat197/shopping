@@ -18,14 +18,14 @@ class CategoryController extends Controller
     public function create()
     {
         $htmlOption = $this->getCategory($parentId = '');
-        return view('category.add', compact('htmlOption'));
+        return view('admin.category.add', compact('htmlOption'));
     }
 
 
     public function index()
     {
         $categories = $this->category->latest()->paginate(8);
-        return view('category.index', compact('categories'));
+        return view('admin.category.index', compact('categories'));
     }
 
     public function store(Request $request)
@@ -39,10 +39,10 @@ class CategoryController extends Controller
             ];
             $this->category->create($data);
         } catch (\Exception $err) {
-            return redirect('category')->with('error', $err->getMessage());
+            return redirect('admin.category')->with('error', $err->getMessage());
         }
 
-        return redirect('category')->with('success', 'Thêm mới danh mục thành công');
+        return redirect('admin.category')->with('success', 'Thêm mới danh mục thành công');
     }
 
     public function getCategory($parentId){
@@ -56,7 +56,7 @@ class CategoryController extends Controller
 
         $category = $this->category->find($id);
         $htmlOption = $this->getCategory($category->parent_id);
-        return view('category.edit',compact('category','htmlOption'));
+        return view('admin.category.edit',compact('category','htmlOption'));
     }
 
     public function update($id, Request $request){
@@ -68,10 +68,10 @@ class CategoryController extends Controller
             ];
             $this->category->find($id)->update($data);
         } catch (\Exception $err) {
-            return redirect('category')->with('error', $err->getMessage());
+            return redirect('admin.category')->with('error', $err->getMessage());
         }
 
-        return redirect('category')->with('success', 'Update danh mục thành công');
+        return redirect('admin.category')->with('success', 'Update danh mục thành công');
     }
 
     public function delete($id){
@@ -79,8 +79,8 @@ class CategoryController extends Controller
             $category = $this->category->find($id);
             $this->category->find($id)->delete();
         }catch (\Exception $err){
-            return redirect('category')->with('error', $err->getMessage());
+            return redirect('admin.category')->with('error', $err->getMessage());
         }
-        return redirect('category')->with('success', 'Xoá danh mục '. $category->name . ' thành công');
+        return redirect('admin.category')->with('success', 'Xoá danh mục '. $category->name . ' thành công');
     }
 }

@@ -4,14 +4,14 @@
 
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
-    @include('partials.content-header',['name' => 'Menu','key'=>'Add','link'=>'menu'])
+    @include('partials.content-header',['name' => 'Menu','key'=>'Add','link'=>'admin/menu'])
 
     <!-- Main content -->
     <div class="content">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-4">
-                    <form action="menu/create" method="post">
+                    <form action="admin/menu/create" method="post">
                         @csrf
                         <div class="form-group">
                             <label for="name">Tên menu</label>
