@@ -14,11 +14,12 @@
     @include('partials.content-header',['name' => 'Product','key'=>'Add','link'=>'admin/product'])
 
     <!-- Main content -->
-    <div class="content">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-5">
-                    <form action="admin/product/create" method="post" enctype="multipart/form-data">
+    <form action="admin/product/create" method="post" enctype="multipart/form-data">
+        <div class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-8">
+
                         @csrf
                         <div class="form-group">
                             <label for="name">Tên sản phẩm</label>
@@ -68,17 +69,18 @@
                             <textarea class="form-control tinymce_editor_init" name="content" id="content"></textarea>
                         </div>
                         <button type="submit" class="btn btn-outline-primary">Submit</button>
-                    </form>
+
+                    </div>
+
+
+
                 </div>
-                <div class="col-md-8"></div>
-
-
-            </div>
-            <!-- /.row -->
-        </div><!-- /.container-fluid -->
+                <!-- /.row -->
+            </div><!-- /.container-fluid -->
+        </div>
+        <!-- /.content -->
     </div>
-    <!-- /.content -->
-</div>
+</form>
 <!-- /.content-wrapper -->
 @endsection
 
