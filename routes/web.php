@@ -22,6 +22,9 @@ Route::get('/home', function () {
 });
 
 Route::prefix('admin')->group(function () {
+    Route::get('home', function () {
+        return view('home');
+    });
     //CategoryController
     Route::prefix('category')->group(function () {
         Route::get('', [App\Http\Controllers\CategoryController::class, 'index']);
