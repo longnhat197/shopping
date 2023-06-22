@@ -6,6 +6,11 @@ $(".select2_init").select2({
     tags: true,
 });
 
+$(".custom-file-input").on("change", function () {
+    var fileName = $(this).val().split("\\").pop();
+    $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+});
+
 let editor_config = {
     path_absolute: "/",
     selector: 'textarea.tinymce_editor_init',

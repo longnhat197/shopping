@@ -47,6 +47,6 @@ Route::prefix('admin')->group(function () {
     Route::prefix('product')->group(function () {
         Route::get('', [App\Http\Controllers\AdminProductController::class, 'index']);
         Route::get('create', [App\Http\Controllers\AdminProductController::class, 'create']);
-
+        Route::post('create', [App\Http\Controllers\AdminProductController::class, 'store']);
     });
 });

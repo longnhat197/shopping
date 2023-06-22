@@ -4,7 +4,7 @@
 
 @section('css')
 <link href="{{ asset('vendors/select2/select2.min.css') }}" rel="stylesheet" />
-<link href="{{ asset('admin1/product/add/add.css') }}" rel="stylesheet" />
+<link href="{{ asset('admin1/products/add/add.css') }}" rel="stylesheet" />
 
 @endsection
 
@@ -14,12 +14,12 @@
     @include('partials.content-header',['name' => 'Product','key'=>'Add','link'=>'admin/product'])
 
     <!-- Main content -->
-    <form action="admin/product/create" method="post" enctype="multipart/form-data">
-        <div class="content">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-md-8">
 
+    <div class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-8">
+                    <form action="admin/product/create" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group">
                             <label for="name">Tên sản phẩm</label>
@@ -69,18 +69,18 @@
                             <textarea class="form-control tinymce_editor_init" name="content" id="content"></textarea>
                         </div>
                         <button type="submit" class="btn btn-outline-primary">Submit</button>
-
-                    </div>
-
-
-
+                    </form>
                 </div>
-                <!-- /.row -->
-            </div><!-- /.container-fluid -->
-        </div>
-        <!-- /.content -->
+
+
+
+            </div>
+            <!-- /.row -->
+        </div><!-- /.container-fluid -->
     </div>
-</form>
+    <!-- /.content -->
+</div>
+
 <!-- /.content-wrapper -->
 @endsection
 
@@ -88,5 +88,5 @@
 <script src="{{ asset('vendors/select2/select2.min.js') }}"></script>
 <script src="https://cdn.tiny.cloud/1/ht2q8shag22vyn89yaaa2xbmc0c9mg5bqppl375w2z6iz0qn/tinymce/5/tinymce.min.js"
     referrerpolicy="origin"></script>
-<script src="{{ asset('admin1/product/add/add.js') }}"></script>
+<script src="{{ asset('admin1/products/add/add.js') }}"></script>
 @endsection
