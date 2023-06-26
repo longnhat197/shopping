@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Components\Recursive;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class AdminProductController extends Controller
@@ -35,6 +36,11 @@ class AdminProductController extends Controller
 
         $fileNameOrigin = $file->getClientOriginalName();
         $fileNameHash = Str::random(20) . '.'. $file->getClientOriginalExtension();
-        $path = $request->file('feature_image_path')->storeAs('public/product',$fileName);
+        $filePath = $request->file('feature_image_path')->storeAs('public/product',$fileNameHash);
+        $data =[
+            'file_name' => $fileNameOrigin,
+            'file_path' => Storage::url($filePath)
+        ];
+        dd($data);
     }
 }
